@@ -15,7 +15,7 @@ With your project open in the Unity editor:
 
   Save your changes. (File > Save Project)
 
-If you’re curious, you can read more about Unity’s YAML scene format [here.](:https://robots.thoughtbot.com/how-to-git-with-unity)
+If you’re curious, you can read more about Unity’s YAML scene format [here.](https://robots.thoughtbot.com/how-to-git-with-unity)
 
 ### Version Control
 
