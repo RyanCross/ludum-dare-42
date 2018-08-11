@@ -20,6 +20,8 @@ public class RacerAI : MonoBehaviour, IRacer {
     public bool onBoost = false;
     public float topBoostSpeed = 6.0f;
 
+    public float deathY = -2f;
+
     private void Start()
     {
 
@@ -27,12 +29,29 @@ public class RacerAI : MonoBehaviour, IRacer {
 
     void FixedUpdate()
     {
-        Accelerate();
+        if (IsGrounded())
+        {
+            Accelerate();
+        }
         Move();
+        if (FellTooFar())
+        {
+            Die();
+        }
         if(Random.value < wobbliness)
         {
             ResetRotation();
         }
+    }
+    
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(new Ray(transform.position, -transform.up), 1.1f);
+    }
+
+    private bool FellTooFar()
+    {
+        return this.transform.position.y < deathY;
     }
 
     public void Die()
@@ -40,7 +59,7 @@ public class RacerAI : MonoBehaviour, IRacer {
         Dead = true;
         Debug.Log(this.ToString() + " died!");
 
-        // Some other stuff
+        Destroy(gameObject);
     }
     
     // Probably will remove this from the scene, but for now...
