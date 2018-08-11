@@ -39,6 +39,10 @@ public class TrackGenerationController : MonoBehaviour {
       
                 // Get the vertices of the end face of the track segment
                 newTrackSegment = Object.Instantiate(trackSegmentPrefabs[0].trackSegmentPrefab, new Vector3((transform.localPosition.x + transform.localScale.x), 0, 0), Quaternion.identity);
+
+                // Connect the previous segment to the new segment in the eyes of the AI.
+                previousSegment.GetComponent<Track>().exit.next = newTrackSegment.GetComponent<Track>().entry;
+
                 theRaceTrack.Add(newTrackSegment);
             }
         }
