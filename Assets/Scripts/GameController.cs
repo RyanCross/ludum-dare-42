@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour {
         numAIs--;
         if (numAIs < 1)
         {
-            player.Win();
+            //player.Win();
 
             // Game controller should also do some sort of stuff to signify a win
         }

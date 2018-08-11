@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Track : MonoBehaviour {
 
+    public Waypoint entry;
+    public Waypoint exit;
 	// Use this for initialization
 	void Start () {
 		
