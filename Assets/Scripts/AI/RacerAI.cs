@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RacerAI : MonoBehaviour, IRacer {
 
+    public delegate void AIDeathAction();
+    public static event AIDeathAction OnAIDeath;
+
     // Needs to be set at the start of the race to the first waypoint, probably.
     // i.e., drag first waypoint here in the inspector
     public Waypoint _currentWaypoint;
@@ -59,6 +62,7 @@ public class RacerAI : MonoBehaviour, IRacer {
         Dead = true;
         Debug.Log(this.ToString() + " died!");
 
+        OnAIDeath();
         Destroy(gameObject);
     }
     
