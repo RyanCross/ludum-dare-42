@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
     PlayerController player;
-    TrackGenerationController trackGenerationController;
+    // TrackGenerationController trackGenerationController;
 
     // To be set in inspector
     public int numAIs = 1;
@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour {
         numAIs--;
         if (numAIs < 1)
         {
-            player.Win();
+            // player.Win();
 
             // Game controller should also do some sort of stuff to signify a win
         }
