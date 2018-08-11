@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody rb;
 
-    void Start()
+    public Rigidbody rb;
+
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb.GetComponent<Rigidbody>();
     }
-
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        Vector3 movement = new Vector3(1f, 0.0f, 0.0f);
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            rb.AddForce(movement * 200);
-        }
+        float x = Input.GetAxis("Horizontal") * 2;
+        float z = Input.GetAxis("Vertical") * 2;
+
+        Vector3 movement = new Vector3(x, 0.0f, z);
+        rb.AddForce(movement * 2);
     }
 }
