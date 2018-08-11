@@ -9,9 +9,16 @@ public class RacerAI : MonoBehaviour, IRacer {
     public Waypoint _currentWaypoint;
 
     public bool Dead { get; set; } = false;
-    public float speed = 0.3f;
+
+    public float topSpeed = 1.0f;
+    public float currentSpeed = 0f;
+    public float acceleration = .01f;
+
     public float wobbliness = .2f;
     public float waypointInaccuracy = 2.0f;
+
+    public bool onBoost = false;
+    public float topBoostSpeed = 6.0f;
 
     private void Start()
     {
@@ -20,6 +27,7 @@ public class RacerAI : MonoBehaviour, IRacer {
 
     void FixedUpdate()
     {
+        Accelerate();
         Move();
         if(Random.value < wobbliness)
         {
@@ -41,13 +49,31 @@ public class RacerAI : MonoBehaviour, IRacer {
         if (Dead) return;
         Debug.Log(this.ToString() + " is moving towards " + _currentWaypoint.ToString());
 
-        gameObject.transform.Translate(0f, 0f, speed);
+        gameObject.transform.Translate(0f, 0f, currentSpeed);
+    }
+
+    public void Accelerate()
+    {
+        if(onBoost)
+        {
+            currentSpeed = topBoostSpeed;
+        }
+        else
+        {
+            if(currentSpeed > topSpeed)
+            {
+                currentSpeed -= acceleration;
+            } else
+            {
+                currentSpeed += acceleration;
+            }
+        }
     }
     
     // Do nothing, for now
     public void Win()
     {    
-        Debug.Log(this.ToString() + " died!");
+        Debug.Log(this.ToString() + " won!");
     }
 
     // We entered a new zone for a waypoint. Go towards the next one

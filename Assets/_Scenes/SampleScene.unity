@@ -950,9 +950,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentWaypoint: {fileID: 2099319166}
-  speed: 1
+  topSpeed: 1
+  currentSpeed: 0
+  acceleration: 0.01
   wobbliness: 1
   waypointInaccuracy: 5
+  onBoost: 0
+  topBoostSpeed: 6
 --- !u!54 &1888715542
 Rigidbody:
   m_ObjectHideFlags: 0
