@@ -113,13 +113,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentWaypoint: {fileID: 0}
-  topSpeed: 1
-  currentSpeed: 0
-  acceleration: 0.01
+  topSpeed: 10
+  currentSpeed: 1
+  acceleration: 10
   wobbliness: 1
   waypointInaccuracy: 5
   onBoost: 0
   topBoostSpeed: 6
+  deathY: -2
 --- !u!135 &135957563579137770
 SphereCollider:
   m_ObjectHideFlags: 1

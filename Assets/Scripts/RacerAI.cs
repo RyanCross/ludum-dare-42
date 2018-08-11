@@ -8,45 +8,45 @@ public class RacerAI : MonoBehaviour, IRacer {
     // i.e., drag first waypoint here in the inspector
     public Waypoint _currentWaypoint;
 
-    public bool Dead { get; set; } = false;
+    private Rigidbody rb;
+    float distanceToGround;
 
-    public float topSpeed = 1.0f;
-    public float currentSpeed = 0f;
-    public float acceleration = .01f;
+    public bool Dead { get; set; } = false;
+    
+    public float acceleration = 50f;
+    public float aerialAcceleration = 5f;
 
     public float wobbliness = .2f;
     public float waypointInaccuracy = 2.0f;
 
-    public bool onBoost = false;
-    public float topBoostSpeed = 6.0f;
+    public bool isBoosting = false;
+    public float boostAcceleration = 200f;
 
     public float deathY = -2f;
 
     private void Start()
     {
-
+        distanceToGround = GetComponent<Collider>().bounds.extents.y;
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        if (IsGrounded())
-        {
-            Accelerate();
-        }
         Move();
         if (FellTooFar())
         {
             Die();
         }
-        if(Random.value < wobbliness)
+        if(Random.value > wobbliness)
         {
-            ResetRotation();
+            ModifyTargetWaypoint(_currentWaypoint);
         }
     }
     
     private bool IsGrounded()
     {
-        return Physics.Raycast(new Ray(transform.position, -transform.up), 1.1f);
+        Debug.Log("I'm grounded");
+        return Physics.Raycast(new Ray(transform.position, -Vector3.up), distanceToGround + .1f);
     }
 
     private bool FellTooFar()
@@ -67,26 +67,15 @@ public class RacerAI : MonoBehaviour, IRacer {
     {
         if (Dead) return;
         Debug.Log(this.ToString() + " is moving towards " + _currentWaypoint.ToString());
+        
+        Vector3 targetPosition = _currentWaypoint.transform.position;
+        Vector3 myPosition = transform.position;
 
-        gameObject.transform.Translate(0f, 0f, currentSpeed);
-    }
+        Vector3 direction = (targetPosition - myPosition).normalized;
 
-    public void Accelerate()
-    {
-        if(onBoost)
-        {
-            currentSpeed = topBoostSpeed;
-        }
-        else
-        {
-            if(currentSpeed > topSpeed)
-            {
-                currentSpeed -= acceleration;
-            } else
-            {
-                currentSpeed += acceleration;
-            }
-        }
+        Vector3 resultingForce = IsGrounded() ? acceleration * direction : aerialAcceleration * direction;
+
+        rb.AddForce(resultingForce);
     }
     
     // Do nothing, for now
@@ -105,7 +94,8 @@ public class RacerAI : MonoBehaviour, IRacer {
     private void ResetRotation()
     {
         Vector3 fuzziness = GenerateFuzziness(0.0f, waypointInaccuracy);
-        gameObject.transform.LookAt(_currentWaypoint.transform.position + fuzziness);
+        Vector3 composite = _currentWaypoint.transform.position + fuzziness;
+        gameObject.transform.LookAt(composite);
     }
 
     // We don't want all the enemy race boys bumping into each other.
