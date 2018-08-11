@@ -9,7 +9,7 @@ public class Waypoint : MonoBehaviour {
     {
         if (other.gameObject.tag.Equals("AI"))
         {
-            Debug.Log("AI reached a checkpoint");
+            //Debug.Log("AI reached a checkpoint");
             other.GetComponent<RacerAI>().ModifyTargetWaypoint(next);
         }
     }
