@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HamsterSphere2 : MonoBehaviour {
 
-    public float PlayerRollSpeed = 400f;
+    public float PlayerRollSpeed;
 
 	// Use this for initialization
 	void Start () 
