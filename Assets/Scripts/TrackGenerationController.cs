@@ -25,27 +25,60 @@ public class TrackGenerationController : MonoBehaviour {
     void generateInitialTrack (int raceTrackSize) {
         for (int i = 0; i < raceTrackSize; i++)
         {
-            GameObject newTrackSegment;
             if (theRaceTrack.Count == 0)
             {
-                newTrackSegment = Object.Instantiate(trackSegmentPrefabs[0].trackSegmentPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-                theRaceTrack.Add(newTrackSegment);
+                CreateStartOfTrack();
             }
             else
             {
-                GameObject previousSegment = theRaceTrack[theRaceTrack.Count - 1];
-                Transform transform = previousSegment.GetComponent<Transform>();
-      
-                // Get the vertices of the end face of the track segment
-                newTrackSegment = Object.Instantiate(trackSegmentPrefabs[0].trackSegmentPrefab, new Vector3((transform.localPosition.x + transform.localScale.x), 0, 0), Quaternion.identity);
-
-                // Connect the previous segment to the new segment in the eyes of the AI.
-                previousSegment.GetComponent<Track>().exit.next = newTrackSegment.GetComponent<Track>().entry;
-
-                theRaceTrack.Add(newTrackSegment);
+                ContinueTrack();
             }
         }
     }
 
-    
+    void CreateStartOfTrack(Vector3 startPoint)
+    {
+        GameObject pieceToLay = SelectRandomPiece(trackSegmentPrefabs);
+        GameObject newTrackSegment = Instantiate(pieceToLay, startPoint, Quaternion.identity);
+        theRaceTrack.Add(newTrackSegment);
+    }
+
+    void CreateStartOfTrack()
+    {
+        CreateStartOfTrack(Vector3.zero);
+    }
+
+    void ContinueTrack()
+    {
+        GameObject previousSegment = theRaceTrack[theRaceTrack.Count - 1];
+        GameObject pieceToLay = SelectRandomPiece(trackSegmentPrefabs);
+        Vector3 newPosition = FindNewPosition(previousSegment, pieceToLay);
+
+        // Get the vertices of the end face of the track segment
+        GameObject newTrackSegment = Object.Instantiate(pieceToLay, newPosition, Quaternion.identity);
+
+        ConnectWaypoints(previousSegment, newTrackSegment);
+        theRaceTrack.Add(newTrackSegment);
+    }
+
+    Vector3 FindNewPosition(GameObject go, GameObject pieceToLay)
+    {
+        Vector3 startToCenter = pieceToLay.GetComponentInChildren<StartFace>().transform.position - pieceToLay.transform.position;
+        Debug.Log("Start to center = " + startToCenter);
+        Vector3 endPoint = go.GetComponentInChildren<EndFace>().transform.position;
+        Debug.Log("EndPoint = " + endPoint);
+        return endPoint - startToCenter;
+    }
+
+    GameObject SelectRandomPiece(TrackSegment[] options)
+    {
+        // TODO: Randomly select an option instead of always picking the straight piece.
+        return options[0].trackSegmentPrefab;
+    }
+
+    // Connect the previous segment to the new segment in the eyes of the AI.
+    void ConnectWaypoints(GameObject previousTrackSegment, GameObject newTrackSegment)
+    {
+        previousTrackSegment.GetComponent<Track>().exit.next = newTrackSegment.GetComponent<Track>().entry;
+    }
 }
