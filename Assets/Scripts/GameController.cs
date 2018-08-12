@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour {
         numAIs--;
         if (numAIs < 1)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene ().buildIndex + 1);
+            SceneManager.LoadScene(2);
         }
     }
 }
