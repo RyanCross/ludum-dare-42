@@ -179,8 +179,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1004350761
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +256,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 23.278002, y: -90.00001, z: 0}
->>>>>>> Marble steers itself now
 --- !u!1001 &1124269241
 Prefab:
   m_ObjectHideFlags: 0
@@ -266,56 +263,44 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4337775014867966, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+    - target: {fileID: 4002453973264384, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
       propertyPath: m_LocalPosition.x
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 4337775014867966, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+    - target: {fileID: 4002453973264384, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4337775014867966, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+    - target: {fileID: 4002453973264384, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4337775014867966, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+    - target: {fileID: 4002453973264384, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4337775014867966, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+    - target: {fileID: 4002453973264384, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4337775014867966, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+    - target: {fileID: 4002453973264384, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4337775014867966, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+    - target: {fileID: 4002453973264384, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4337775014867966, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+    - target: {fileID: 4002453973264384, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 1929444986894692, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+    - target: {fileID: 1354693029441282, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
       propertyPath: m_Name
       value: HamsterBall
-=======
-    - target: {fileID: 114377374673804974, guid: 87a66aad304a7486ba20c32bd50b14f7,
-        type: 2}
-      propertyPath: PlayerTurnSpeed
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 135968525740264998, guid: 87a66aad304a7486ba20c32bd50b14f7,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
->>>>>>> Marble steers itself now
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d47fc46c604b3a4b87f102a3425825a, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 60a54aa6b256aea41b1d5dee8b899343, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1318477840
 Prefab:
@@ -355,14 +340,11 @@ Prefab:
     - target: {fileID: 4583001168987776, guid: 29397747fb6a94988990f151831138f6, type: 2}
       propertyPath: m_RootOrder
       value: 4
-<<<<<<< HEAD
-=======
       objectReference: {fileID: 0}
     - target: {fileID: 114062225043740856, guid: 29397747fb6a94988990f151831138f6,
         type: 2}
       propertyPath: PlayerTurnSpeed
       value: 50
->>>>>>> Marble steers itself now
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29397747fb6a94988990f151831138f6, type: 2}
