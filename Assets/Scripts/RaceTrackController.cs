@@ -4,17 +4,37 @@ using UnityEngine;
 
 public class RaceTrackController : MonoBehaviour {
 
-    // placeholder script for the class the holds the current state of the track.
-    // Retrieves new TrackSegment information from the TrackGeneratorController.
+    public static RaceTrackController instance;
+    
     public int raceTrackSize = 10;
     internal List<GameObject> TheRaceTrack { get; set; }
     internal TrackGenerationController TrackGenerator { get; set; }
+    internal bool decayInProgress { get; set; } = false;
+
+
+    //Awake is always called before any Start functions
+    void Awake()
+    {
+        //Check if instance already exists
+        if (instance == null)
+
+            //if not, set instance to this
+            instance = this;
+
+        //If instance already exists and it's not this:
+        else if (instance != this)
+
+            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+            Destroy(gameObject);
+
+        //Sets this to not be destroyed when reloading scene
+        DontDestroyOnLoad(gameObject);
+    }
 
 
     // Use this for initialization
     void Start () {
-        TrackGenerator = GameObject.FindGameObjectWithTag("TrackGenerator").GetComponent<TrackGenerationController>();
-        initializeRaceTrack();
+        RaceTrackController.instance.initializeRaceTrack();
 		
 	}
 	
@@ -24,7 +44,7 @@ public class RaceTrackController : MonoBehaviour {
 	}
 
     void initializeRaceTrack() {
-        this.TheRaceTrack = TrackGenerator.generateInitialTrack(raceTrackSize);
+        this.TheRaceTrack = TrackGenerationController.instance.generateInitialTrack(raceTrackSize);
     }
 
 
