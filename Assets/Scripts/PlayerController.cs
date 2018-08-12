@@ -37,6 +37,6 @@ public class PlayerController : MonoBehaviour
     private void Die ()
     {
         Debug.Log("WE DEAD");
-        SceneManager.LoadScene(SceneManager.GetActiveScene ().buildIndex + 1);
+        SceneManager.LoadScene(3);
     }
 }
