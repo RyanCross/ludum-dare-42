@@ -11,7 +11,7 @@ public class RacerAI : MonoBehaviour, IRacer {
     // i.e., drag first waypoint here in the inspector
     public Waypoint _currentWaypoint;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
     float distanceToGround;
 
     public bool Dead { get; set; } = false;
@@ -25,17 +25,18 @@ public class RacerAI : MonoBehaviour, IRacer {
     public bool isBoosting = false;
     public float boostAcceleration = 200f;
 
-    public float deathY = -2f;
+    public float deathY;
 
     private void Start()
     {
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
-        rb = GetComponent<Rigidbody>();
+        deathY = GameObject.FindWithTag("GameController").GetComponent<GameController> ().deathY;
     }
 
     void FixedUpdate()
     {
         Move();
+
         if (FellTooFar())
         {
             Die();
@@ -48,7 +49,6 @@ public class RacerAI : MonoBehaviour, IRacer {
     
     private bool IsGrounded()
     {
-        Debug.Log("I'm grounded");
         return Physics.Raycast(new Ray(transform.position, -Vector3.up), distanceToGround + .1f);
     }
 
@@ -71,7 +71,7 @@ public class RacerAI : MonoBehaviour, IRacer {
     {
         if (Dead) return;
         Debug.Log(this.ToString() + " is moving towards " + _currentWaypoint.ToString());
-        
+
         Vector3 targetPosition = _currentWaypoint.transform.position;
         Vector3 myPosition = transform.position;
 

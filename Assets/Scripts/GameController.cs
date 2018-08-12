@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
     PlayerController player;
     TrackGenerationController trackGenerationController;
+
+    public float deathY { get; set; } = -15f;
 
     // To be set in inspector
     public int numAIs = 1;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         RacerAI.OnAIDeath += EnemyDeath;
         SpawnRacers();
 	}
@@ -21,7 +24,8 @@ public class GameController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update () 
+    {
 		
 	}
 
@@ -45,9 +49,7 @@ public class GameController : MonoBehaviour {
         numAIs--;
         if (numAIs < 1)
         {
-            //player.Win();
-
-            // Game controller should also do some sort of stuff to signify a win
+            SceneManager.LoadScene(SceneManager.GetActiveScene ().buildIndex + 1);
         }
     }
 }
