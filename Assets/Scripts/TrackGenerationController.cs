@@ -39,7 +39,6 @@ public class TrackGenerationController : MonoBehaviour {
 
     void CreateStartOfTrack(List<GameObject> initialRaceTrack, Vector3 startPoint)
     {
-        GameObject pieceToLay = SelectRandomPiece(trackSegmentPrefabs);
         // first track should probably always be the plain straight one (index 0)
         GameObject newTrackSegment = Instantiate(trackSegmentPrefabs[0].trackSegmentPrefab, startPoint, Quaternion.identity);
         initialRaceTrack.Add(newTrackSegment);
