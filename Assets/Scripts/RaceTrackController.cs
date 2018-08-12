@@ -47,8 +47,4 @@ public class RaceTrackController : MonoBehaviour {
         this.TheRaceTrack = TrackGenerationController.instance.generateInitialTrack(raceTrackSize);
     }
 
-
-    void checkForDecay () {
-
-    }
 }

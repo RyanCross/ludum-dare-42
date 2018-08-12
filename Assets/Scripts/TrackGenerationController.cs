@@ -43,7 +43,6 @@ public class TrackGenerationController : MonoBehaviour {
 	    	
 	}
 
-
     internal List<GameObject> generateInitialTrack (int raceTrackSize) {
         List<GameObject> theRaceTrack = new List<GameObject>();
         for (int i = 0; i < raceTrackSize; i++)
@@ -72,7 +71,7 @@ public class TrackGenerationController : MonoBehaviour {
         CreateStartOfTrack(initialRaceTrack, Vector3.zero);
     }
 
-    void ContinueTrack(List<GameObject> theRaceTrack)
+    internal void ContinueTrack(List<GameObject> theRaceTrack)
     {
         GameObject previousSegment = theRaceTrack[theRaceTrack.Count - 1];
         GameObject pieceToLay = SelectRandomPiece(trackSegmentPrefabs);
@@ -88,9 +87,7 @@ public class TrackGenerationController : MonoBehaviour {
     Vector3 FindNewPosition(GameObject go, GameObject pieceToLay)
     {
         Vector3 startToCenter = pieceToLay.GetComponentInChildren<StartFace>().transform.position - pieceToLay.transform.position;
-        Debug.Log("Start to center = " + startToCenter);
         Vector3 endPoint = go.GetComponentInChildren<EndFace>().transform.position;
-        Debug.Log("EndPoint = " + endPoint);
         return endPoint - startToCenter;
     }
 

@@ -12,4 +12,5 @@ public class TrackSegment : MonoBehaviour
     public GameObject trackSegmentPrefab;
     public GameObject DecayTriggerZone;
 
+    internal bool hasBeenTraversed { get; set; } = false;
 }
