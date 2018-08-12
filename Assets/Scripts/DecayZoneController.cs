@@ -7,7 +7,7 @@ public class DecayZoneController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ENTERING NEW TRACK COLLISION");
-        if (RaceTrackController.instance.decayInProgress == false)
+        if (RaceTrackController.Instance.decayInProgress == false)
         {
             TrackSegment parentTrack = gameObject.GetComponentInParent<TrackSegment>();
             if (parentTrack.hasBeenTraversed == false)
@@ -15,18 +15,20 @@ public class DecayZoneController : MonoBehaviour
                 if (other.gameObject.tag == "Player" || other.gameObject.tag == "AI")
                 {
                     Debug.Log("BEGIN DECAY");
-                    RaceTrackController.instance.decayInProgress = true;
+                    RaceTrackController.Instance.decayInProgress = true;
                     // track has now been traversed by atleast one player or npc, so we won't trigger decay any more for this track
                     parentTrack.hasBeenTraversed = true;
                     // Destroy the track
-                    GameObject trackToRemove = RaceTrackController.instance.TheRaceTrack[0];
-                    RaceTrackController.instance.TheRaceTrack.RemoveAt(0);
-                    Object.Destroy(trackToRemove.gameObject);
+                    GameObject trackToRemove = RaceTrackController.Instance.TheRaceTrack[0];
+                    RaceTrackController.Instance.TheRaceTrack.RemoveAt(0);
+                    
+                    //This will immediately remove the track as soon as the player enters it
+                    // trackToRemove.gameObject.SetActive(false);
 
-                    RaceTrackController.instance.decayInProgress = false;
+                    RaceTrackController.Instance.decayInProgress = false;
 
                     // Add new track
-                    TrackGenerationController.instance.ContinueTrack(RaceTrackController.instance.TheRaceTrack);
+                    TrackGenerationController.Instance.ContinueTrack(RaceTrackController.Instance.TheRaceTrack);
 
                 }
             }

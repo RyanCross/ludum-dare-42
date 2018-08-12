@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TrackGenerationController : MonoBehaviour {
 
-    public static TrackGenerationController instance = null;
+    private static TrackGenerationController _instance;
+
+    public static TrackGenerationController Instance { get { return _instance; } }
 
     TrackSegment[] trackSegmentPrefabs;
 
@@ -17,17 +19,13 @@ public class TrackGenerationController : MonoBehaviour {
     {
         trackSegmentPrefabs = GameObject.FindGameObjectWithTag("GameLoader").GetComponent<GameLoader>().trackSegmentPrefabs;
         //Check if instance already exists
-        if (instance == null)
-
-            //if not, set instance to this
-            instance = this;
-
-        //If instance already exists and it's not this:
-        else if (instance != this)
-
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+        if (_instance != null && _instance != this)
+        {
             Destroy(gameObject);
-
+        } else
+        {
+            _instance = this;
+        }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
@@ -44,6 +42,7 @@ public class TrackGenerationController : MonoBehaviour {
 	}
 
     internal List<GameObject> generateInitialTrack (int raceTrackSize) {
+        Debug.Log("Generating Initial Track");
         List<GameObject> theRaceTrack = new List<GameObject>();
         for (int i = 0; i < raceTrackSize; i++)
         {
