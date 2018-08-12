@@ -8,7 +8,18 @@ public class DecayZoneController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "AI")
         {
-            RaceTrackController raceTrackController = GameObject.FindGameObjectWithTag("RaceTrack").GetComponent<RaceTrackController>();
+            if (RaceTrackController.instance.decayInProgress == true)
+            {
+                // Do nothing, decay is already in progress
+            }
+            else
+            {
+                GameObject trackToRemove = RaceTrackController.instance.TheRaceTrack[0];
+                RaceTrackController.instance.TheRaceTrack.RemoveAt(0);
+                Object.Destroy(trackToRemove);
+            }
+
+            
 
             //decay the first piece of the track in the list
         }
