@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     // To be set in inspector
     public int numAIs = 1;
 
+    public static bool hasGameStarted = false;
 
     private void Awake()
     {
