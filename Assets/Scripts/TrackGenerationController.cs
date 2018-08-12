@@ -100,7 +100,9 @@ public class TrackGenerationController : MonoBehaviour {
     GameObject SelectRandomPiece(TrackSegment[] options)
     {
         // TODO: Randomly select an option instead of always picking the straight piece.
-        return options[0].trackSegmentPrefab;
+        int randomIndex = (int) (Random.value * options.Length);
+        Debug.Log("Random Index = " + randomIndex);
+        return options[randomIndex].gameObject;
     }
 
     // Connect the previous segment to the new segment in the eyes of the AI.
