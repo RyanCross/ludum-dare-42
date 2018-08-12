@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c0dab155e43d56540934277edfc76899, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.05401741, g: 0.049434744, b: 0.045066617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -144,8 +144,8 @@ Transform:
   m_LocalPosition: {x: 39.521805, y: -8.833757, z: -0.48903495}
   m_LocalScale: {x: 24.96, y: 1, z: 14.9682}
   m_Children: []
-  m_Father: {fileID: 1505227577}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &24745720
 MonoBehaviour:
@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391358423a8b683499085050a22375f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entry: {fileID: 278874750}
-  exit: {fileID: 1993824687}
+  entry: {fileID: 0}
+  exit: {fileID: 0}
   trackSegmentPrefab: {fileID: 24745718}
   DecayTriggerZone: {fileID: 0}
 --- !u!65 &24745721
@@ -284,9 +284,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
-
 --- !u!1001 &398576070
 Prefab:
   m_ObjectHideFlags: 0
@@ -325,6 +324,10 @@ Prefab:
     - target: {fileID: 4931793220504652, guid: 84eca3da39212cf4cb3a489e97deb3b3, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724493777226832, guid: 84eca3da39212cf4cb3a489e97deb3b3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84eca3da39212cf4cb3a489e97deb3b3, type: 2}
@@ -447,7 +450,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &715754909 stripped
 MonoBehaviour:
@@ -486,8 +489,8 @@ Transform:
   m_LocalPosition: {x: 15.951803, y: -3.3237572, z: -0.53903496}
   m_LocalScale: {x: 25.416601, y: 1, z: 14.839532}
   m_Children: []
-  m_Father: {fileID: 1505227577}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 26}
 --- !u!114 &1303358791
 MonoBehaviour:
@@ -502,7 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entry: {fileID: 0}
-  exit: {fileID: 187508700}
+  exit: {fileID: 0}
   trackSegmentPrefab: {fileID: 1303358789}
   DecayTriggerZone: {fileID: 0}
 --- !u!65 &1303358792
@@ -702,8 +705,8 @@ Transform:
   m_LocalPosition: {x: 52.001804, y: -8.833757, z: -0.48903495}
   m_LocalScale: {x: 24.96, y: 1, z: 14.9682}
   m_Children: []
-  m_Father: {fileID: 1505227577}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2141296827
 MonoBehaviour:
