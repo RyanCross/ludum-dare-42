@@ -7,6 +7,8 @@ TagManager:
   - AI
   - TrackGenerator
   - DecayTrigger
+  - RaceTrack
+  - GameLoader
   layers:
   - Default
   - TransparentFX

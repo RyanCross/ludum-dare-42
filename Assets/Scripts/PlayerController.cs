@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        deathY = GameObject.FindWithTag("GameController").GetComponent<GameController> ().deathY;
+        deathY = GameController.instance.deathY;
         rb.GetComponent<Rigidbody>();
     }
 
