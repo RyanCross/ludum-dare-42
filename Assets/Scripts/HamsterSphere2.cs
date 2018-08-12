@@ -5,11 +5,17 @@ using UnityEngine;
 public class HamsterSphere2 : MonoBehaviour {
 
     public float PlayerRollSpeed;
+    public float PlayerTurnSpeed;
+
+    public float turn;
+
+    public Rigidbody rigBod;
 
 	// Use this for initialization
 	void Start () 
     {
-		
+        rigBod = GetComponent<Rigidbody>();
+
 	}
 	
 	// Update is called once per frame
@@ -18,12 +24,15 @@ public class HamsterSphere2 : MonoBehaviour {
 		
 	}
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        //Character Controls
-        gameObject.GetComponent<Rigidbody>().AddTorque(Vector3.right * PlayerRollSpeed * Input.GetAxis("Horizontal") * Time.deltaTime);
-
-        gameObject.GetComponent<Rigidbody>().AddTorque(Vector3.forward * PlayerRollSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
-
+        if (Input.GetKey("w"))
+            rigBod.AddTorque(Camera.main.transform.right * PlayerRollSpeed * Time.deltaTime);
+        if (Input.GetKey("a"))
+            rigBod.AddTorque(Camera.main.transform.forward * PlayerRollSpeed * Time.deltaTime);
+        if (Input.GetKey("s"))
+            rigBod.AddTorque(Camera.main.transform.right * -PlayerRollSpeed * Time.deltaTime);
+        if (Input.GetKey("d"))
+            rigBod.AddTorque(Camera.main.transform.forward * -PlayerRollSpeed * Time.deltaTime);
     }
 }
