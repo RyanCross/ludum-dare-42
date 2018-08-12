@@ -24,12 +24,15 @@ public class HamsterSphere2 : MonoBehaviour {
 		
 	}
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        float turning = Input.GetAxis("Horizontal");
-        rigBod.AddRelativeTorque(Vector3.up * PlayerTurnSpeed * turning);
-
-        float accelerate = Input.GetAxis("Vertical");
-        rigBod.AddRelativeTorque(Vector3.forward * PlayerRollSpeed * accelerate);
+        if (Input.GetKey("w"))
+            rigBod.AddTorque(Camera.main.transform.right * PlayerRollSpeed * Time.deltaTime);
+        if (Input.GetKey("a"))
+            rigBod.AddTorque(Camera.main.transform.forward * PlayerRollSpeed * Time.deltaTime);
+        if (Input.GetKey("s"))
+            rigBod.AddTorque(Camera.main.transform.right * -PlayerRollSpeed * Time.deltaTime);
+        if (Input.GetKey("d"))
+            rigBod.AddTorque(Camera.main.transform.forward * -PlayerRollSpeed * Time.deltaTime);
     }
 }
