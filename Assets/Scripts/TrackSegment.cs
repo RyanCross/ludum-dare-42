@@ -10,5 +10,5 @@ public class TrackSegment : MonoBehaviour
     public Waypoint exit;
 
     public GameObject trackSegmentPrefab;
-    public GameObject CollisionZone;
+    public GameObject DecayTriggerZone;
 }
