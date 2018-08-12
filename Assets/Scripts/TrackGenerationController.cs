@@ -9,8 +9,7 @@ public class TrackGenerationController : MonoBehaviour {
 
     // eventually we'll want to get these values from the controller script controlling the state of track.
     public int raceTrackSize = 10;
-    public List<GameObject> theRaceTrack = new List<GameObject>();
-
+    
     // Use this for initialization
     void Start () {
         generateInitialTrack(raceTrackSize);
@@ -18,37 +17,40 @@ public class TrackGenerationController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+	    	
 	}
 
 
-    void generateInitialTrack (int raceTrackSize) {
+    internal List<GameObject> generateInitialTrack (int raceTrackSize) {
+        List<GameObject> theRaceTrack = new List<GameObject>();
         for (int i = 0; i < raceTrackSize; i++)
         {
             if (theRaceTrack.Count == 0)
             {
-                CreateStartOfTrack();
+                CreateStartOfTrack(theRaceTrack);
             }
             else
             {
-                ContinueTrack();
+                ContinueTrack(theRaceTrack);
             }
         }
+        return theRaceTrack;
     }
 
-    void CreateStartOfTrack(Vector3 startPoint)
+    void CreateStartOfTrack(List<GameObject> initialRaceTrack, Vector3 startPoint)
     {
         GameObject pieceToLay = SelectRandomPiece(trackSegmentPrefabs);
-        GameObject newTrackSegment = Instantiate(pieceToLay, startPoint, Quaternion.identity);
-        theRaceTrack.Add(newTrackSegment);
+        // first track should probably always be the plain straight one (index 0)
+        GameObject newTrackSegment = Instantiate(trackSegmentPrefabs[0].trackSegmentPrefab, startPoint, Quaternion.identity);
+        initialRaceTrack.Add(newTrackSegment);
     }
 
-    void CreateStartOfTrack()
+    void CreateStartOfTrack(List<GameObject> initialRaceTrack)
     {
-        CreateStartOfTrack(Vector3.zero);
+        CreateStartOfTrack(initialRaceTrack, Vector3.zero);
     }
 
-    void ContinueTrack()
+    void ContinueTrack(List<GameObject> theRaceTrack)
     {
         GameObject previousSegment = theRaceTrack[theRaceTrack.Count - 1];
         GameObject pieceToLay = SelectRandomPiece(trackSegmentPrefabs);
@@ -79,6 +81,6 @@ public class TrackGenerationController : MonoBehaviour {
     // Connect the previous segment to the new segment in the eyes of the AI.
     void ConnectWaypoints(GameObject previousTrackSegment, GameObject newTrackSegment)
     {
-        previousTrackSegment.GetComponent<Track>().exit.next = newTrackSegment.GetComponent<Track>().entry;
+        previousTrackSegment.GetComponent<TrackSegment>().exit.next = newTrackSegment.GetComponent<TrackSegment>().entry;
     }
 }

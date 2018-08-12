@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e1fe1bac551cc4cacdc9182a9da655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raceTrackSize: 10
 --- !u!4 &193345118
 Transform:
   m_ObjectHideFlags: 0
@@ -153,6 +154,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &297452827
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4474469356030888, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -17.585903
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474469356030888, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 37.714108
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474469356030888, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -44.61397
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474469356030888, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474469356030888, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474469356030888, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474469356030888, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474469356030888, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &628412816
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,13 +266,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 628412816}
-  m_LocalRotation: {x: -0, y: 0.62193024, z: -0, w: 0.7830726}
-  m_LocalPosition: {x: -65.2, y: 11.9, z: -22.8}
+  m_LocalRotation: {x: 0.06272822, y: 0.61875874, z: -0.07898113, w: 0.7790795}
+  m_LocalPosition: {x: -27.6, y: 8.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 76.914, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.273001, y: 76.652, z: -2.6560001}
 --- !u!1 &970958725
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +350,7 @@ GameObject:
   - component: {fileID: 1364014457}
   m_Layer: 0
   m_Name: TrackGenerator
-  m_TagString: Untagged
+  m_TagString: TrackGenerator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,11 +380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackSegmentPrefabs:
-  - trackName: Hookeroony
-    trackSegmentPrefab: {fileID: 1941531411565692, guid: bec0934e5d80f76489bd1d15d480cd79,
-      type: 2}
+  - {fileID: 114977582608808866, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
   raceTrackSize: 10
-  theRaceTrack: []
 --- !u!1 &1535807668
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +490,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1535807668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 47.7, z: -43.7}
+  m_LocalPosition: {x: 0, y: 10.75, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}

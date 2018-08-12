@@ -4,8 +4,11 @@ using UnityEngine;
 
 // telling unity that this class is Serializable will allow it to show up in the inspector
 [System.Serializable]
-public class TrackSegment
+public class TrackSegment : MonoBehaviour
 {
-    public string trackName;
+    public Waypoint entry;
+    public Waypoint exit;
+
     public GameObject trackSegmentPrefab;
+    public GameObject DecayTriggerZone;
 }
