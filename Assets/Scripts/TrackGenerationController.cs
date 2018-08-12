@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class TrackGenerationController : MonoBehaviour {
 
-    public static TrackGenerationController instance = null;
+    private static TrackGenerationController _instance;
+
+    public static TrackGenerationController Instance { get { return _instance; } }
 
     TrackSegment[] trackSegmentPrefabs;
 
     // eventually we'll want to get these values from the controller script controlling the state of track.
     public int raceTrackSize = 10;
+    public int PiecesPlaced
+    {
+        get;
+        private set;
+    } = 0;
 
 
     //Awake is always called before any Start functions
@@ -17,17 +24,13 @@ public class TrackGenerationController : MonoBehaviour {
     {
         trackSegmentPrefabs = GameObject.FindGameObjectWithTag("GameLoader").GetComponent<GameLoader>().trackSegmentPrefabs;
         //Check if instance already exists
-        if (instance == null)
-
-            //if not, set instance to this
-            instance = this;
-
-        //If instance already exists and it's not this:
-        else if (instance != this)
-
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+        if (_instance != null && _instance != this)
+        {
             Destroy(gameObject);
-
+        } else
+        {
+            _instance = this;
+        }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
@@ -35,7 +38,7 @@ public class TrackGenerationController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        generateInitialTrack(raceTrackSize);
+        //generateInitialTrack(raceTrackSize);
 	}
 	
 	// Update is called once per frame
@@ -43,8 +46,8 @@ public class TrackGenerationController : MonoBehaviour {
 	    	
 	}
 
-
     internal List<GameObject> generateInitialTrack (int raceTrackSize) {
+        Debug.Log("Generating Initial Track");
         List<GameObject> theRaceTrack = new List<GameObject>();
         for (int i = 0; i < raceTrackSize; i++)
         {
@@ -64,6 +67,7 @@ public class TrackGenerationController : MonoBehaviour {
     {
         // first track should probably always be the plain straight one (index 0)
         GameObject newTrackSegment = Instantiate(trackSegmentPrefabs[0].trackSegmentPrefab, startPoint, Quaternion.identity);
+        newTrackSegment.GetComponentInParent<TrackSegment>().Ordinal = PiecesPlaced++;
         initialRaceTrack.Add(newTrackSegment);
     }
 
@@ -72,7 +76,7 @@ public class TrackGenerationController : MonoBehaviour {
         CreateStartOfTrack(initialRaceTrack, Vector3.zero);
     }
 
-    void ContinueTrack(List<GameObject> theRaceTrack)
+    internal void ContinueTrack(List<GameObject> theRaceTrack)
     {
         GameObject previousSegment = theRaceTrack[theRaceTrack.Count - 1];
         GameObject pieceToLay = SelectRandomPiece(trackSegmentPrefabs);
@@ -80,6 +84,7 @@ public class TrackGenerationController : MonoBehaviour {
 
         // Get the vertices of the end face of the track segment
         GameObject newTrackSegment = Object.Instantiate(pieceToLay, newPosition, Quaternion.identity);
+        newTrackSegment.GetComponentInParent<TrackSegment>().Ordinal = PiecesPlaced++;
 
         ConnectWaypoints(previousSegment, newTrackSegment);
         theRaceTrack.Add(newTrackSegment);
@@ -88,9 +93,7 @@ public class TrackGenerationController : MonoBehaviour {
     Vector3 FindNewPosition(GameObject go, GameObject pieceToLay)
     {
         Vector3 startToCenter = pieceToLay.GetComponentInChildren<StartFace>().transform.position - pieceToLay.transform.position;
-        Debug.Log("Start to center = " + startToCenter);
         Vector3 endPoint = go.GetComponentInChildren<EndFace>().transform.position;
-        Debug.Log("EndPoint = " + endPoint);
         return endPoint - startToCenter;
     }
 

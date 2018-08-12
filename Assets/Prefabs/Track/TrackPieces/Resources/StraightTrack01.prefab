@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 33501968692744210}
   - component: {fileID: 23565878356273468}
   - component: {fileID: 65057729990864974}
+  - component: {fileID: 114987990856029054}
   m_Layer: 0
   m_Name: DecayTriggerZone
   m_TagString: DecayTrigger
@@ -477,4 +478,15 @@ MonoBehaviour:
   entry: {fileID: 114867429093738450}
   exit: {fileID: 114092169689171072}
   trackSegmentPrefab: {fileID: 1941531411565692}
-  DecayTriggerZone: {fileID: 0}
+  DecayTriggerZone: {fileID: 1200988969874436}
+--- !u!114 &114987990856029054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200988969874436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0f02bb8d09b8f40ba7d56a4813276a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

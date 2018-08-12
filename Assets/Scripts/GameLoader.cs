@@ -31,7 +31,7 @@ public class GameLoader : MonoBehaviour {
             QuitGame();
         }
 
-        if (RaceTrackController.instance == null)
+        if (RaceTrackController.Instance == null)
         {
             
             Instantiate(raceTrackControllerPrefab);
@@ -42,7 +42,7 @@ public class GameLoader : MonoBehaviour {
             QuitGame();
         }
 
-        if (TrackGenerationController.instance == null)
+        if (TrackGenerationController.Instance == null)
         {
             Instantiate(trackGenerationControllerPrefab);
         }

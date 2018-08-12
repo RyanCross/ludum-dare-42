@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class RaceTrackController : MonoBehaviour {
 
-    public static RaceTrackController instance;
+    private static RaceTrackController _instance;
+    public static RaceTrackController Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
     
     public int raceTrackSize = 10;
     internal List<GameObject> TheRaceTrack { get; set; }
@@ -15,18 +22,13 @@ public class RaceTrackController : MonoBehaviour {
     //Awake is always called before any Start functions
     void Awake()
     {
-        //Check if instance already exists
-        if (instance == null)
-
-            //if not, set instance to this
-            instance = this;
-
-        //If instance already exists and it's not this:
-        else if (instance != this)
-
-            //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+        if(_instance != null && _instance != this)
+        {
             Destroy(gameObject);
-
+        } else
+        {
+            _instance = this;
+        }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
     }
@@ -34,8 +36,8 @@ public class RaceTrackController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        RaceTrackController.instance.initializeRaceTrack();
-		
+        // DON'T DO THIS HERE. Just do it in TrackGenerationController I guess. Do we need both controllers?
+        Instance.initializeRaceTrack();
 	}
 	
 	// Update is called once per frame
@@ -44,11 +46,7 @@ public class RaceTrackController : MonoBehaviour {
 	}
 
     void initializeRaceTrack() {
-        this.TheRaceTrack = TrackGenerationController.instance.generateInitialTrack(raceTrackSize);
+        TheRaceTrack = TrackGenerationController.Instance.generateInitialTrack(raceTrackSize);
     }
 
-
-    void checkForDecay () {
-
-    }
 }
