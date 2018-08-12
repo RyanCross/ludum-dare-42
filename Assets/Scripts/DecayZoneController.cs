@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DecayZoneController : MonoBehaviour
 {
+    // How many pieces should we allow between first and last place?
+    private int _maxGap = 2;
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ENTERING NEW TRACK COLLISION");
@@ -14,22 +16,29 @@ public class DecayZoneController : MonoBehaviour
             {
                 if (other.gameObject.tag == "Player" || other.gameObject.tag == "AI")
                 {
-                    Debug.Log("BEGIN DECAY");
-                    RaceTrackController.Instance.decayInProgress = true;
-                    // track has now been traversed by atleast one player or npc, so we won't trigger decay any more for this track
-                    parentTrack.hasBeenTraversed = true;
-                    // Destroy the track
+                    // If this track is way too far from the guy in the back
+                    int distance = TrackGenerationController.Instance.PiecesPlaced + parentTrack.Ordinal - TrackGenerationController.Instance.raceTrackSize;
+                    //Debug.Log("Pieces Placed = " + TrackGenerationController.Instance.PiecesPlaced);
+                    //Debug.Log("Ordinal = " + parentTrack.Ordinal);
+                    Debug.Log("distance = " + distance);
+                    Debug.Log("maxGap = " + _maxGap);
+                    if (distance <= _maxGap)
+                    {
+                        Debug.Log("distance too short");
+                        return;
+                    }
+                    Debug.Log("Enough Distance");
+                    
                     GameObject trackToRemove = RaceTrackController.Instance.TheRaceTrack[0];
+                    //This will immediately remove the track as soon as the player enters it
+                    trackToRemove.gameObject.SetActive(false);
                     RaceTrackController.Instance.TheRaceTrack.RemoveAt(0);
                     
-                    //This will immediately remove the track as soon as the player enters it
-                    // trackToRemove.gameObject.SetActive(false);
 
                     RaceTrackController.Instance.decayInProgress = false;
 
                     // Add new track
                     TrackGenerationController.Instance.ContinueTrack(RaceTrackController.Instance.TheRaceTrack);
-
                 }
             }
         }

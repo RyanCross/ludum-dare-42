@@ -37,7 +37,7 @@ public class RaceTrackController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         // DON'T DO THIS HERE. Just do it in TrackGenerationController I guess. Do we need both controllers?
-        //Instance.initializeRaceTrack();
+        Instance.initializeRaceTrack();
 	}
 	
 	// Update is called once per frame

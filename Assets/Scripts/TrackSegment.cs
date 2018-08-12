@@ -13,4 +13,6 @@ public class TrackSegment : MonoBehaviour
     public GameObject DecayTriggerZone;
 
     internal bool hasBeenTraversed { get; set; } = false;
+
+    internal int Ordinal { get; set; } = 0;
 }

@@ -12,6 +12,11 @@ public class TrackGenerationController : MonoBehaviour {
 
     // eventually we'll want to get these values from the controller script controlling the state of track.
     public int raceTrackSize = 10;
+    public int PiecesPlaced
+    {
+        get;
+        private set;
+    } = 0;
 
 
     //Awake is always called before any Start functions
@@ -33,7 +38,7 @@ public class TrackGenerationController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        generateInitialTrack(raceTrackSize);
+        //generateInitialTrack(raceTrackSize);
 	}
 	
 	// Update is called once per frame
@@ -62,6 +67,7 @@ public class TrackGenerationController : MonoBehaviour {
     {
         // first track should probably always be the plain straight one (index 0)
         GameObject newTrackSegment = Instantiate(trackSegmentPrefabs[0].trackSegmentPrefab, startPoint, Quaternion.identity);
+        newTrackSegment.GetComponentInParent<TrackSegment>().Ordinal = PiecesPlaced++;
         initialRaceTrack.Add(newTrackSegment);
     }
 
@@ -78,6 +84,7 @@ public class TrackGenerationController : MonoBehaviour {
 
         // Get the vertices of the end face of the track segment
         GameObject newTrackSegment = Object.Instantiate(pieceToLay, newPosition, Quaternion.identity);
+        newTrackSegment.GetComponentInParent<TrackSegment>().Ordinal = PiecesPlaced++;
 
         ConnectWaypoints(previousSegment, newTrackSegment);
         theRaceTrack.Add(newTrackSegment);
