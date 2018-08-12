@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1674998748516436}
+  m_RootGameObject: {fileID: 1405227957862788}
   m_IsPrefabAsset: 1
---- !u!1 &1674998748516436
+--- !u!1 &1405227957862788
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4801007663797400}
-  - component: {fileID: 114051493703048716}
+  - component: {fileID: 4354835065123606}
+  - component: {fileID: 114550997323039312}
   m_Layer: 0
   m_Name: GameLoader
   m_TagString: GameLoader
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4801007663797400
+--- !u!4 &4354835065123606
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1674998748516436}
+  m_GameObject: {fileID: 1405227957862788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.030701, y: -261.74927, z: 73.32686}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114051493703048716
+--- !u!114 &114550997323039312
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1674998748516436}
+  m_GameObject: {fileID: 1405227957862788}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd31b86b6a5e064488a2026b96769371, type: 3}
@@ -59,3 +59,5 @@ MonoBehaviour:
     type: 2}
   trackSegmentPrefabs:
   - {fileID: 114977582608808866, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
+  countdownControllerPrefab: {fileID: 1532393110706624, guid: af5185f3e530c124ebd599bc4db71184,
+    type: 2}

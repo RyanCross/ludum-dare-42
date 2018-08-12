@@ -31,8 +31,6 @@ public class GameController : MonoBehaviour {
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
-        RaceCountdown();
-
     }
 
     // Use this for initialization
@@ -40,7 +38,8 @@ public class GameController : MonoBehaviour {
     {
         RacerAI.OnAIDeath += EnemyDeath;
         SpawnRacers();
-	}
+        RaceCountdown();
+    }
 
     // Update is called once per frame
     void Update () 
@@ -60,7 +59,7 @@ public class GameController : MonoBehaviour {
 
     private void RaceCountdown()
     {
-
+        CountdownController.instance.StartRaceCountdown();
     }
 
     void EnemyDeath()
