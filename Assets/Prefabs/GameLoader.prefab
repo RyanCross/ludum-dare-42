@@ -9,46 +9,53 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1443957125556060}
+  m_RootGameObject: {fileID: 1674998748516436}
   m_IsPrefabAsset: 1
---- !u!1 &1443957125556060
+--- !u!1 &1674998748516436
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4846985397674316}
-  - component: {fileID: 114947934666387690}
+  - component: {fileID: 4801007663797400}
+  - component: {fileID: 114051493703048716}
   m_Layer: 0
-  m_Name: TrackGenerator
-  m_TagString: Untagged
+  m_Name: GameLoader
+  m_TagString: GameLoader
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4846985397674316
+--- !u!4 &4801007663797400
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1443957125556060}
+  m_GameObject: {fileID: 1674998748516436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.124992, y: 13.830205, z: -8.535703}
+  m_LocalPosition: {x: 8.030701, y: -261.74927, z: 73.32686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114947934666387690
+--- !u!114 &114051493703048716
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1443957125556060}
+  m_GameObject: {fileID: 1674998748516436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d310e4f0983e94497d1e17e0ac2d68, type: 3}
+  m_Script: {fileID: 11500000, guid: bd31b86b6a5e064488a2026b96769371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raceTrackSize: 10
+  gameControllerPrefab: {fileID: 1921691469395836, guid: 2e9ca209b07344167b5b283a10025696,
+    type: 2}
+  raceTrackControllerPrefab: {fileID: 1417893445732930, guid: 91e201d47acde5848acdd872ba9e3e75,
+    type: 2}
+  trackGenerationControllerPrefab: {fileID: 1443957125556060, guid: a3ae368d59364d14f8e04ab7a2407877,
+    type: 2}
+  trackSegmentPrefabs:
+  - {fileID: 114977582608808866, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
