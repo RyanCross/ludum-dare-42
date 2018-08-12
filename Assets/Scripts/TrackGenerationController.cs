@@ -22,8 +22,7 @@ public class TrackGenerationController : MonoBehaviour {
 	}
 
 
-    void generateInitialTrack (int raceTrackSize)
-    {
+    void generateInitialTrack (int raceTrackSize) {
         for (int i = 0; i < raceTrackSize; i++)
         {
             GameObject newTrackSegment;
