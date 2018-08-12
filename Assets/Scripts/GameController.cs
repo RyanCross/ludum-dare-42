@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
     PlayerController player;
-    // TrackGenerationController trackGenerationController;
+    TrackGenerationController trackGenerationController;
 
     // To be set in inspector
     public int numAIs = 1;
