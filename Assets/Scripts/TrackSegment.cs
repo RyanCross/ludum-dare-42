@@ -11,4 +11,5 @@ public class TrackSegment : MonoBehaviour
 
     public GameObject trackSegmentPrefab;
     public GameObject DecayTriggerZone;
+
 }

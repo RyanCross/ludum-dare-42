@@ -51,9 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d310e4f0983e94497d1e17e0ac2d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackSegmentPrefabs:
-  - trackName: StraightTrack01
-    trackSegmentPrefab: {fileID: 1941531411565692, guid: bec0934e5d80f76489bd1d15d480cd79,
-      type: 2}
   raceTrackSize: 10
-  theRaceTrack: []
