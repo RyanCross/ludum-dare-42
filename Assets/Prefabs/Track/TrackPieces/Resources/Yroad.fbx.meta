@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 82a4ef16c5bb9473fb2363a55f537ed7
+guid: 298e101d9b11b431eb94a3112278cd15
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Armature
-    100002: Armature.001
-    100004: Bone
-    100006: Bone 1
-    100008: Bone_end
-    100010: Bone_end 1
-    100012: Camera
-    100014: Cube.002
-    100016: Lamp
-    100018: //RootNode
-    400000: Armature
-    400002: Armature.001
-    400004: Bone
-    400006: Bone 1
-    400008: Bone_end
-    400010: Bone_end 1
-    400012: Camera
-    400014: Cube.002
-    400016: Lamp
-    400018: //RootNode
-    2000000: Camera
+    100000: Cube
+    100002: Cube.001
+    100004: Cube.002
+    100006: Cube.003
+    100008: //RootNode
+    400000: Cube
+    400002: Cube.001
+    400004: Cube.002
+    400006: Cube.003
+    400008: //RootNode
     2100000: Material
-    2300000: Cube.002
-    3300000: Cube.002
-    4300000: Cube.002
-    10800000: Lamp
+    2300000: Cube
+    2300002: Cube.001
+    2300004: Cube.002
+    2300006: Cube.003
+    3300000: Cube
+    3300002: Cube.001
+    3300004: Cube.002
+    3300006: Cube.003
+    4300000: Cube.003
+    4300002: Cube.002
+    4300004: Cube.001
+    4300006: Cube
   externalObjects: {}
   materials:
     importMaterials: 1
