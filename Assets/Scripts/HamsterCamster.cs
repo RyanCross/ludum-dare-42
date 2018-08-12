@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HamsterCamster : MonoBehaviour {
-    
+public class HamsterCamster : MonoBehaviour
+{
+
     GameObject HamBall;
     float middleOfTrack = 0f;
 
     // Use this for initialization
-	void Start () 
+    void Start()
     {
         HamBall = GameObject.Find("HamsterBall");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     private void LateUpdate()
     {
