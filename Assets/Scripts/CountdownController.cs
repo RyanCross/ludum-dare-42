@@ -39,6 +39,7 @@ public class CountdownController : MonoBehaviour
         if(timeLeft == 0)
         {
             countdown.text = ("Go!");
+            GameController.hasGameStarted = true;
         }
         else if(timeLeft > 0)
         {

@@ -35,7 +35,10 @@ public class RacerAI : MonoBehaviour, IRacer {
 
     void FixedUpdate()
     {
-        Move();
+        if(GameController.hasGameStarted)
+        {
+            Move();
+        }
 
         if (FellTooFar())
         {
