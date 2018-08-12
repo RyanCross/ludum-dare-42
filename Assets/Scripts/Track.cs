@@ -6,6 +6,8 @@ public class Track : MonoBehaviour {
 
     public Waypoint entry;
     public Waypoint exit;
+
+    public GameObject CollisionZone;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,4 +17,9 @@ public class Track : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void GenerateTriggerZone()
+    {
+
+    }
 }
