@@ -101,7 +101,7 @@ public class TrackGenerationController : MonoBehaviour {
     {
         // TODO: Randomly select an option instead of always picking the straight piece.
         int randomIndex = (int) (Random.value * options.Length);
-        Debug.Log("Random Index = " + randomIndex);
+        //Debug.Log("Random Index = " + randomIndex);
         return options[randomIndex].gameObject;
     }
 
