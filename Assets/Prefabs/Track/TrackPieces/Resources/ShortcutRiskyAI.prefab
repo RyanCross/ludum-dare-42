@@ -516,7 +516,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1724493777226832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalPosition: {x: 228.17815, y: 251.86296, z: -121.71949}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4146427395408324}
@@ -1353,8 +1353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391358423a8b683499085050a22375f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entry: {fileID: 0}
-  exit: {fileID: 0}
+  entry: {fileID: 114094405882418606}
+  exit: {fileID: 114968962490478394}
   trackSegmentPrefab: {fileID: 1724493777226832}
   DecayTriggerZone: {fileID: 1426690312625112}
 --- !u!114 &114965808291826984
