@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour {
 
     public static GameController instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
     PlayerController player;
+    public GameObject[] Enemies;
     private TrackGenerationController trackGenerationController;
 
     public float deathY { get; set; } = -15f;
@@ -37,6 +38,7 @@ public class GameController : MonoBehaviour {
     // Use this for initialization
     void Start () 
     {
+        Enemies = GameObject.FindGameObjectsWithTag("AI");
         hasRaceStarted = false;
         RacerAI.OnAIDeath += EnemyDeath;
         SpawnRacers();

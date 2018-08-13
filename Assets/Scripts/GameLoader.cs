@@ -9,6 +9,7 @@ public class GameLoader : MonoBehaviour {
     public GameObject trackGenerationControllerPrefab;   //TrackGenerationController prefab to instantiate
     public TrackSegment[] trackSegmentPrefabs; //Track pieces that will be used for procedural generation
     public GameObject countdownControllerPrefab;             //CountdownController prefab to instantiate.
+    public TrackSegment startingTrackSegmentPrefab;
 
     void Awake()
     {
@@ -33,7 +34,6 @@ public class GameLoader : MonoBehaviour {
 
         if (RaceTrackController.Instance == null)
         {
-            
             Instantiate(raceTrackControllerPrefab);
         }
         else
@@ -45,6 +45,7 @@ public class GameLoader : MonoBehaviour {
         if (TrackGenerationController.Instance == null)
         {
             Instantiate(trackGenerationControllerPrefab);
+            TrackGenerationController.Instance.StartPiece = startingTrackSegmentPrefab;
         }
         else
         {

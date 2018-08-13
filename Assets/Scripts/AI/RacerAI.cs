@@ -73,7 +73,7 @@ public class RacerAI : MonoBehaviour, IRacer {
     public void Move()
     {
         if (Dead) return;
-        Debug.Log(this.ToString() + " is moving towards " + _currentWaypoint.ToString());
+        //Debug.Log(this.ToString() + " is moving towards " + _currentWaypoint.ToString());
 
         Vector3 targetPosition = _currentWaypoint.transform.position;
         Vector3 myPosition = transform.position;
