@@ -6,9 +6,10 @@ namespace UnityStandardAssets.Vehicles.Ball
     public class Ball : MonoBehaviour
     {
         [SerializeField] private float m_MovePower = 5; // The force added to the ball to move it.
-        [SerializeField] private bool m_UseTorque = true; // Whether or not to use torque to move the ball.
+        [SerializeField] private bool m_UseTorque = false; // Whether or not to use torque to move the ball.
         [SerializeField] private float m_MaxAngularVelocity = 25; // The maximum velocity the ball can rotate at.
         [SerializeField] private float m_JumpPower = 2; // The force added to the ball when it jumps.
+        float distanceToGround;
 
         private const float k_GroundRayLength = 1f; // The length of the ray to check if the ball is grounded.
         private Rigidbody m_Rigidbody;
@@ -19,11 +20,18 @@ namespace UnityStandardAssets.Vehicles.Ball
             m_Rigidbody = GetComponent<Rigidbody>();
             // Set the maximum angular velocity.
             GetComponent<Rigidbody>().maxAngularVelocity = m_MaxAngularVelocity;
+            distanceToGround = GetComponent<Collider>().bounds.extents.y;
+        }
+
+        private bool IsGrounded()
+        {
+            return Physics.Raycast(new Ray(transform.position, -Vector3.up), distanceToGround + .1f);
         }
 
 
         public void Move(Vector3 moveDirection, bool jump)
         {
+            m_UseTorque = !IsGrounded();
             // If using torque to rotate the ball...
             if (m_UseTorque)
             {

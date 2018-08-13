@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 33494416153458850}
   - component: {fileID: 23788736130448936}
   - component: {fileID: 64914347001476198}
+  - component: {fileID: 114252902980557616}
   m_Layer: 0
   m_Name: downHillTubeTrack (1)
   m_TagString: Untagged
@@ -75,6 +76,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4177301002963306}
+  - component: {fileID: 114031442707387090}
   m_Layer: 0
   m_Name: EndFaceCenter
   m_TagString: Untagged
@@ -109,6 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4700409492596140}
+  - component: {fileID: 114377089230546954}
   m_Layer: 0
   m_Name: StartFaceCenter
   m_TagString: Untagged
@@ -175,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1326619055865060}
   m_LocalRotation: {x: -0.5049711, y: 0.49497908, z: 0.49497905, w: 0.504971}
-  m_LocalPosition: {x: -133.1, y: 64.3, z: -296.5}
+  m_LocalPosition: {x: -15.340227, y: 154.52643, z: 24.401293}
   m_LocalScale: {x: 575.02435, y: 575.02435, z: 575.02435}
   m_Children:
   - {fileID: 4823022019291064}
@@ -417,6 +420,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114031442707387090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454577784995846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34ab841aa02a2641b0a4ece240121a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114051061974217140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -428,6 +442,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0f02bb8d09b8f40ba7d56a4813276a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114252902980557616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1326619055865060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391358423a8b683499085050a22375f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 114360666979008514}
+  exit: {fileID: 114578617857280606}
+  trackSegmentPrefab: {fileID: 1326619055865060}
+  DecayTriggerZone: {fileID: 1220696192243256}
 --- !u!114 &114360666979008514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,7 +468,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3484788686a68344a9e90c0f1f45d723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  next: {fileID: 0}
+  next: {fileID: 114578617857280606}
+--- !u!114 &114377089230546954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792121747085548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7b6fe709f4c3a47b2b1d83867d361f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114578617857280606
 MonoBehaviour:
   m_ObjectHideFlags: 1

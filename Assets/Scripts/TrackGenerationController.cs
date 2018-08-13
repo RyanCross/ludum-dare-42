@@ -9,6 +9,7 @@ public class TrackGenerationController : MonoBehaviour {
     public static TrackGenerationController Instance { get { return _instance; } }
 
     TrackSegment[] trackSegmentPrefabs;
+    public TrackSegment StartPiece;
 
     // eventually we'll want to get these values from the controller script controlling the state of track.
     public int raceTrackSize = 10;
@@ -33,7 +34,6 @@ public class TrackGenerationController : MonoBehaviour {
         }
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
-
     }
 
     // Use this for initialization
@@ -66,9 +66,11 @@ public class TrackGenerationController : MonoBehaviour {
     void CreateStartOfTrack(List<GameObject> initialRaceTrack, Vector3 startPoint)
     {
         // first track should probably always be the plain straight one (index 0)
-        GameObject newTrackSegment = Instantiate(trackSegmentPrefabs[0].trackSegmentPrefab, startPoint, Quaternion.identity);
-        newTrackSegment.GetComponentInParent<TrackSegment>().Ordinal = PiecesPlaced++;
+        GameObject newTrackSegment = Instantiate(StartPiece.trackSegmentPrefab, startPoint, Quaternion.Euler(new Vector3(-90, 0, 0)));
+        TrackSegment track = newTrackSegment.GetComponentInParent<TrackSegment>();
+        track.Ordinal = PiecesPlaced++;
         initialRaceTrack.Add(newTrackSegment);
+        TellEnemiesToGoTo(track.entry);
     }
 
     void CreateStartOfTrack(List<GameObject> initialRaceTrack)
@@ -101,7 +103,7 @@ public class TrackGenerationController : MonoBehaviour {
     {
         // TODO: Randomly select an option instead of always picking the straight piece.
         int randomIndex = (int) (Random.value * options.Length);
-        //Debug.Log("Random Index = " + randomIndex);
+        Debug.Log("Random Index = " + randomIndex);
         return options[randomIndex].gameObject;
     }
 
@@ -109,5 +111,13 @@ public class TrackGenerationController : MonoBehaviour {
     void ConnectWaypoints(GameObject previousTrackSegment, GameObject newTrackSegment)
     {
         previousTrackSegment.GetComponent<TrackSegment>().exit.next = newTrackSegment.GetComponent<TrackSegment>().entry;
+    }
+
+    void TellEnemiesToGoTo(Waypoint destination)
+    {
+        foreach(GameObject enemy in GameController.instance.Enemies)
+        {
+            enemy.GetComponent<RacerAI>()._currentWaypoint = destination;
+        }
     }
 }
