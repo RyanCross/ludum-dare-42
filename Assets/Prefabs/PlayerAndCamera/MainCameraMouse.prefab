@@ -100,4 +100,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d01c444052bc941b3f6e14d18edc45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAt: {fileID: 0}
+  lookAt: {fileID: 4996265047508356, guid: 94b75fe5b13e38b42ba6946528417bf2, type: 2}

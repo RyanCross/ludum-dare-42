@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
     private bool FellTooFar()
     {
-        Debug.Log(deathY);
         return this.transform.position.y < deathY;
     }
 

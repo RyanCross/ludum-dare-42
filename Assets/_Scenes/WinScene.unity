@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.055099368, g: 0.05076745, b: 0.04668501, a: 1}
+  m_IndirectSpecularColor: {r: 0.05191122, g: 0.049350746, b: 0.049993016, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -213,6 +213,11 @@ Prefab:
     - target: {fileID: 1828426017886302, guid: aa6c0e99bdd7eb5408623eef534b0df2, type: 2}
       propertyPath: m_Name
       value: WinCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 223732640409911874, guid: aa6c0e99bdd7eb5408623eef534b0df2,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa6c0e99bdd7eb5408623eef534b0df2, type: 2}
