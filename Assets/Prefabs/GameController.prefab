@@ -51,4 +51,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63c735f2dbc83c4b975ff1f6442b5bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numAIs: 1
+  Enemies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  numAIs: 11
