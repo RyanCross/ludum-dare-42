@@ -9,7 +9,7 @@ public class CountdownController : MonoBehaviour
 
     public int timeLeft = 3;
     public Text countdown;
-    private float waitSeconds = 0.5f;
+    private float waitSeconds = 1f;
 
     //Awake is always called before any Start functions
     void Awake()
