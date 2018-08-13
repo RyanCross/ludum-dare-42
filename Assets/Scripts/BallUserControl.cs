@@ -21,7 +21,7 @@ namespace UnityStandardAssets.Vehicles.Ball
             // Set up the reference.
             ball = GetComponent<Ball>();
 
-            GameController.hasGameStarted = true;
+            GameController.hasRaceStarted = true;
             // get the transform of the main camera
             if (Camera.main != null)
             {
@@ -61,7 +61,7 @@ namespace UnityStandardAssets.Vehicles.Ball
 
         private void FixedUpdate()
         {
-            if(GameController.hasGameStarted)
+            if(GameController.hasRaceStarted)
             {
                 // Call the Move function of the ball controller
                 ball.Move(move, jump);

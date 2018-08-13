@@ -35,7 +35,7 @@ public class RacerAI : MonoBehaviour, IRacer {
 
     void FixedUpdate()
     {
-        if(GameController.hasGameStarted)
+        if(GameController.hasRaceStarted)
         {
             Move();
         }

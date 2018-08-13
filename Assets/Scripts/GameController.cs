@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     // To be set in inspector
     public int numAIs = 1;
 
-    public static bool hasGameStarted;
+    public static bool hasRaceStarted;
 
     private void Awake()
     {
@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
     // Use this for initialization
     void Start () 
     {
-        hasGameStarted = false;
+        hasRaceStarted = false;
         RacerAI.OnAIDeath += EnemyDeath;
         SpawnRacers();
         RaceCountdown();
