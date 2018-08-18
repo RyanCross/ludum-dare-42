@@ -13,7 +13,9 @@ public class GameLoader : MonoBehaviour {
 
     void Awake()
     {
+        Debug.Log("Loading Game...");
         Debug.Log("Ensure all TrackPieces have decay trigger zones, start/end faces, waypoints and have been assigned to track segment prefabs");
+
         if (trackSegmentPrefabs.Length == 0)
         {
             Debug.Log("No track prefabs loaded");

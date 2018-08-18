@@ -17,7 +17,7 @@ public class DecayZoneController : MonoBehaviour
                 if (other.gameObject.tag == "Player" || other.gameObject.tag == "AI")
                 {
                     // If this track is way too far from the guy in the back
-                    int distance = TrackGenerationController.Instance.PiecesPlaced + parentTrack.Ordinal - TrackGenerationController.Instance.raceTrackSize;
+                    int distance = TrackGenerationController.Instance.PiecesPlaced + parentTrack.Ordinal - RaceTrackController.Instance.raceTrackSize;
                     //Debug.Log("Pieces Placed = " + TrackGenerationController.Instance.PiecesPlaced);
                     //Debug.Log("Ordinal = " + parentTrack.Ordinal);
                     Debug.Log("distance = " + distance);

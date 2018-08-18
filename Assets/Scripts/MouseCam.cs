@@ -15,8 +15,7 @@ public class MouseCam : MonoBehaviour
     private float distance = 10.0f;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
-    private float sensivityX = 5.0f;
-    private float sensivityY = 5.0f;
+    private float aensitivityX = 5.0f;
 
 
     // Use this for initialization
@@ -40,7 +39,7 @@ public class MouseCam : MonoBehaviour
     {
 
         Vector3 dir = new Vector3(0, 0, - distance);
-        Quaternion rotation = Quaternion.Euler(currentY, currentX * sensivityX, 0);
+        Quaternion rotation = Quaternion.Euler(currentY, currentX * aensitivityX, 0);
         //var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         camTransform.position = lookAt.position + rotation * dir;

@@ -61,3 +61,5 @@ MonoBehaviour:
   - {fileID: 114977582608808866, guid: bec0934e5d80f76489bd1d15d480cd79, type: 2}
   countdownControllerPrefab: {fileID: 1532393110706624, guid: af5185f3e530c124ebd599bc4db71184,
     type: 2}
+  startingTrackSegmentPrefab: {fileID: 114977582608808866, guid: bec0934e5d80f76489bd1d15d480cd79,
+    type: 2}

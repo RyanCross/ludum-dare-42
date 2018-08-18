@@ -11,8 +11,6 @@ public class TrackGenerationController : MonoBehaviour {
     TrackSegment[] trackSegmentPrefabs;
     public TrackSegment StartPiece;
 
-    // eventually we'll want to get these values from the controller script controlling the state of track.
-    public int raceTrackSize = 10;
     public int PiecesPlaced
     {
         get;
@@ -38,7 +36,7 @@ public class TrackGenerationController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //generateInitialTrack(raceTrackSize);
+
 	}
 	
 	// Update is called once per frame
@@ -66,7 +64,7 @@ public class TrackGenerationController : MonoBehaviour {
     void CreateStartOfTrack(List<GameObject> initialRaceTrack, Vector3 startPoint)
     {
         // first track should probably always be the plain straight one (index 0)
-        GameObject newTrackSegment = Instantiate(StartPiece.trackSegmentPrefab, startPoint, Quaternion.Euler(new Vector3(-90, 0, 0)));
+        GameObject newTrackSegment = Instantiate(StartPiece.trackSegmentPrefab, startPoint, Quaternion.identity);
         TrackSegment track = newTrackSegment.GetComponentInParent<TrackSegment>();
         track.Ordinal = PiecesPlaced++;
         initialRaceTrack.Add(newTrackSegment);
@@ -101,9 +99,7 @@ public class TrackGenerationController : MonoBehaviour {
 
     GameObject SelectRandomPiece(TrackSegment[] options)
     {
-        // TODO: Randomly select an option instead of always picking the straight piece.
         int randomIndex = (int) (Random.value * options.Length);
-        Debug.Log("Random Index = " + randomIndex);
         return options[randomIndex].gameObject;
     }
 
